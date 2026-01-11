@@ -39,3 +39,5 @@ Analysis applies **final survey weights/multipliers** (included in repo as "Fina
   → Register at [microdata.gov.in](https://microdata.gov.in) → Request approval → Download .zip with fixed-width .txt files (e.g., household/person level) + data layout/codebook + weights
 
 - Format: Fixed-width text (.txt) — Use R's `read_fwf()` from `readr` or base `read.fwf()` with widths from the official data layout file.
+ ## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
