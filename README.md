@@ -3,8 +3,8 @@
 **R-based analysis of India's Periodic Labour Force Survey (PLFS) July 2023 – June 2024 unit level data**  
 Focus: Education indicators – Literacy rates, mean years of schooling, out-of-school children, reasons for non-attendance, and application of final survey weights.
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Maheshgorai/PLFS-2023-24?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/Maheshgorai/PLFS-2023-24?style=flat-square)
+[![Repo size](https://img.shields.io/github/repo-size/Maheshgorai/PLFS-2023-24?style=flat-square)](https://github.com/Maheshgorai/PLFS-2023-24)
+[![Last commit](https://img.shields.io/github/last-commit/Maheshgorai/PLFS-2023-24?style=flat-square)](https://github.com/Maheshgorai/PLFS-2023-24/commits/main)
 
 ## Overview
 
