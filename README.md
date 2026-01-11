@@ -1,27 +1,24 @@
-# PLFS 2023-24 Unit Level Data Analysis (Education Indicators)
+# PLFS 2023-24 Education Indicators
 
-**R-based analysis of India's latest Periodic Labour Force Survey (PLFS) July 2023–June 2024 microdata**  
-Focus: Education – Literacy, mean years of schooling, out-of-school children, reasons for dropout/non-attendance
+**Weighted analysis of India's Periodic Labour Force Survey 2023–2024 unit level data**
 
-**Key national findings (weighted estimates):**
-- Literacy rate (7+ years): **80.9%**  
-  • Male: 87.2% | Female: 74.6% → Gender gap: **12.6 pp**
-- Strong urban-rural divide: Urban **88.9%** vs Rural **77.5%**
-- Top performing states: Mizoram (~98.2%), Lakshadweep, Kerala
-- Lagging states: Bihar (~74.3%), Rajasthan, Madhya Pradesh
+### Key National Results
+- Literacy rate (7+): **80.9%**  
+  Male 87.2% • Female 74.6% • Gender gap 12.6 pp  
+  Urban 88.9% • Rural 77.5%
+- Top states: Mizoram (~98.2%), Lakshadweep, Kerala
+- Lowest: Bihar (~74.3%), Rajasthan, Madhya Pradesh
 
-**Technical highlights**
-- Worked with **restricted-access unit level fixed-width data** from MoSPI
-- Applied **final survey multipliers/weights** for nationally representative estimates
-- Processed large-scale household/person level files using R (`read_fwf`, `survey`, `dplyr`, etc.)
+**Also analysed**:
+- Mean years of schooling
+- Out-of-school children by age/gender/sector
+- Main reasons for never attending/dropping out
 
-**Repository contains:**
-- Final survey weights files
-- R scripts/notebooks for data cleaning, weighting & indicator calculation
-- Selected results & tables
+**Tools**  
+R • survey weights • srvyr • dplyr • ggplot2
 
-🔗 https://github.com/Maheshgorai/PLFS-2023-24
+Final survey multipliers included in repository  
+Official data source: [MoSPI PLFS microdata portal](https://microdata.gov.in)
 
-Working with PLFS/NSS-type microdata | Survey weights | Large-scale official statistics | Education & labour market indicators | Gender & regional disparities
-
-#PLFS #OfficialStatistics #Microdata #SurveySampling #LabourEconomics #DataAnalysis #RStats #IndianEconomy
+[![Repo size](https://img.shields.io/github/repo-size/Maheshgorai/PLFS-2023-24)](https://github.com/Maheshgorai/PLFS-2023-24)
+[![Last commit](https://img.shields.io/github/last-commit/Maheshgorai/PLFS-2023-24)](https://github.com/Maheshgorai/PLFS-2023-24/commits/main)
