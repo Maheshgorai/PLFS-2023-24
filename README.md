@@ -16,7 +16,9 @@
 
 **Tools**  
 R • survey weights • srvyr • dplyr • ggplot2
-Key Functions used • `mutate()`, `filter()`, `group_by()`, `summarise()`, `case_when()`, `select()`, `arrange()`
+
+Key Functions used • `mutate()`, `filter()`, `group_by()`, `summarise()`, `case_when()`, `select()`, `arrange()`,`pivot_wider()`
+
 Final survey multipliers included in repository  
 Official data source: [MoSPI PLFS microdata portal](https://microdata.gov.in)
 
