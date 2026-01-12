@@ -15,9 +15,9 @@
 - Main reasons for never attending/dropping out
 
 **Tools**  
-R • survey weights • srvyr • dplyr • ggplot2
+R • survey weights • srvyr • dplyr • ggplot2 • tidyr
 
-Key Functions used • `mutate()`, `filter()`, `group_by()`, `summarise()`, `case_when()`, `select()`, `arrange()`,`pivot_wider()`
+Key Functions used • `mutate()`, `filter()`, `group_by()`, `summarise()`, `case_when()`, `select()`, `arrange()`, `pivot_wider()`
 
 Final survey multipliers included in repository  
 Official data source: [MoSPI PLFS microdata portal](https://microdata.gov.in)
