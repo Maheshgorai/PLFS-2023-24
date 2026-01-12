@@ -3,10 +3,10 @@ library(data.table)
 library(writexl)
 
 
-df <- fread("D:/UDISE+/perv1.txt")
+perv1 <- fread("D:/UDISE+/perv1.txt")
 
 
-df <- df %>%
+perv1 <- perv1 %>%
   mutate(
     Gender = ifelse(Column19 == 1, "Male", 
                     ifelse(Column19 == 2, "Female", NA)),
@@ -16,11 +16,10 @@ df <- df %>%
     )
   )
 
-total_pop <- sum(df$final_weight, na.rm = TRUE)
+total_pop <- sum(perv1$final_weight, na.rm = TRUE)
 print(round(total_pop))  
 
-# Define age groups
-df <- df %>%
+perv1 <- perv1 %>%
   mutate(
     Age_Group = case_when(
       Column20 >= 07 & Column20 <= 14 ~ "07-14",
@@ -41,7 +40,7 @@ df <- df %>%
       Column20 >= 85 ~ "85+",
       TRUE ~ NA_character_
     ),
-    Literacy = ifelse(Column22 %in% c(01), "Illiterate", "Literate"),  # Adjust literacy_column and codes
+    Literacy = ifelse(Column22 %in% c(01), "Illiterate", "Literate"),
     Gender = case_when(
       Column19 == 1 ~ "Male",
       Column19 == 2 ~ "Female",
@@ -56,7 +55,7 @@ df <- df %>%
   filter(!is.na(Age_Group))
 
 # For Rural Males ==============================================================
-male_rural_table <- df %>%
+male_rural_table <- perv1 %>%
   filter(Gender == "Male") %>%
   filter(Sector == "Rural") %>%
   group_by(Age_Group, Literacy) %>%
@@ -69,9 +68,8 @@ male_rural_table <- df %>%
 
 print(male_rural_table)
 
-
 # For Urban Males ==============================================================
-male_urban_table <- df %>%
+male_urban_table <- perv1 %>%
   filter(Gender == "Male") %>%
   filter(Sector == "Urban") %>%
   group_by(Age_Group, Literacy) %>%
@@ -86,7 +84,7 @@ male_urban_table <- df %>%
 print(male_urban_table)
 
 #For Male ======================================================================
-male_table <- df %>%
+male_table <- perv1 %>%
   filter(Gender == "Male") %>%
   group_by(Age_Group, Literacy) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -98,7 +96,7 @@ male_table <- df %>%
 print(male_table)
 
 #For Rural Female ==============================================================
-female_rural_table <- df %>%
+female_rural_table <- perv1 %>%
   filter(Gender == "Female") %>%
   filter(Sector == "Rural") %>%
   group_by(Age_Group, Literacy) %>%
@@ -112,7 +110,7 @@ female_rural_table <- df %>%
 print(female_rural_table)
 
 #For Urban Female ==============================================================
-female_urban_table <- df %>%
+female_urban_table <- perv1 %>%
   filter(Gender == "Female") %>%
   filter(Sector == "Urban") %>%
   group_by(Age_Group, Literacy) %>%
@@ -126,7 +124,7 @@ female_urban_table <- df %>%
 print(female_urban_table)
 
 # For Female ===================================================================
-female_table <- df %>%
+female_table <- perv1 %>%
   filter(Gender == "Female") %>%
   group_by(Age_Group, Literacy) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -139,7 +137,7 @@ female_table <- df %>%
 print(female_table)
 
 # For Rural Person =============================================================
-person_rural_table <- df %>%
+person_rural_table <- perv1 %>%
   filter(Sector == "Rural") %>%
   group_by(Age_Group, Literacy) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -152,7 +150,7 @@ person_rural_table <- df %>%
 print(person_rural_table)
 
 # For Urban Person =============================================================
-person_urban_table <- df %>%
+person_urban_table <- perv1 %>%
   filter(Sector == "Urban") %>%
   group_by(Age_Group, Literacy) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -165,7 +163,7 @@ person_urban_table <- df %>%
 print(person_urban_table)
 
 # For Person ===================================================================
-person_table <- df %>%
+person_table <- perv1 %>%
   group_by(Age_Group, Literacy) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
   tidyr::pivot_wider(names_from = Literacy, values_from = Population, values_fill = 0) %>%
@@ -174,10 +172,9 @@ person_table <- df %>%
   arrange(factor(Age_Group, levels = c("7-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-
 print(person_table)
-View(person_table)
 
+# Literacy Summary ============================================================
 literacy_7plus <- bind_rows(
   list(
     "Male_Rural"  = male_rural_table,
@@ -206,11 +203,7 @@ literacy_7plus <- bind_rows(
     "Person_Rural","Person_Urban","All"
   )))
 
-print(literacy_7plus)
-View(literacy_7plus)
-
-# After your literacy_7plus code is executed...
-
+# Rural Urban Literacy ========================================================
 rural_urban_summary <- literacy_7plus %>%
   filter(Category %in% c("Person_Rural", "Person_Urban", "All")) %>%
   select(Category, Total, Literate, Illiterate, Literacy_Rate_7plus) %>%
@@ -222,9 +215,7 @@ rural_urban_summary <- literacy_7plus %>%
     )
   )
 
-View(rural_urban_summary)
-
-# Quick gaps (after running previous code)
+# Literacy Gap =================================================================
 cat("Male-Female literacy gap (All India): ",
     round(literacy_7plus$Literacy_Rate_7plus[literacy_7plus$Category == "Male"] -
             literacy_7plus$Literacy_Rate_7plus[literacy_7plus$Category == "Female"], 1),
@@ -235,7 +226,6 @@ cat("Rural-Urban literacy gap (Persons): ",
             literacy_7plus$Literacy_Rate_7plus[literacy_7plus$Category == "Person_Rural"], 1),
     "%\n")
 
-# Creating the list
 table <- list(
   "Male_Rural" = male_rural_table,
   "Male_Urban" = male_urban_table,
@@ -250,6 +240,5 @@ table <- list(
   "Rural_Urban_literacy" = rural_urban_summary
 )
 
-# Export using the exact same name
 write_xlsx(table, "PLFS_Literacy_Tables_2023_24_with_ages_7.xlsx")
-getwd()
+
