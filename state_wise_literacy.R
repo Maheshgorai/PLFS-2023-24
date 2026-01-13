@@ -2,7 +2,6 @@ library(dplyr)
 library(data.table)
 library(writexl)
 
-
 df <- fread("D:/UDISE+/perv1.txt")
 
 df <- df %>%
@@ -87,15 +86,15 @@ df <- df %>%
 
 # State-wise for Persons (All sectors) - AGE 7+ ONLY
 state_person_table_7plus <- df %>%
-  filter(Column20 >= 7, !is.na(State)) %>%   # ← This is the key fix!
-  group_by(State_Name, Literacy) %>%         # Using State_Name for readability
+  filter(Column20 >= 7, !is.na(State)) %>%   
+  group_by(State_Name, Literacy) %>%         
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
   tidyr::pivot_wider(names_from = Literacy, values_from = Population, values_fill = 0) %>%
   mutate(
     Total = Literate + Illiterate,
     Literacy_Rate_7plus = round(100 * Literate / Total, 1)
   ) %>%
-  arrange(desc(Literacy_Rate_7plus))          # Highest to lowest
+  arrange(desc(Literacy_Rate_7plus))          
 
 print("State-wise Literacy Rate (Age 7+, Persons - All India):")
 print(state_person_table_7plus)
@@ -126,4 +125,4 @@ state_urban_table_7plus <- df %>%
   ) %>%
   arrange(desc(Literacy_Rate_urban_7plus))
 View(state_urban_table_7plus)
-# We can do the same for Male, Female, etc.
+
