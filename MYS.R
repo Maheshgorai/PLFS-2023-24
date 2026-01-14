@@ -1,11 +1,10 @@
 library(dplyr)
 library(data.table)
-library(tidyr)# Needed for pivot_wider
-library(writexl)
+library(tidyr)
 
-df <- fread("D:/UDISE+/perv1.txt")
+perv1 <- fread("D:/UDISE+/perv1.txt")
 
-df <- df %>%
+perv1 <- perv1 %>%
   mutate(
     Gender = case_when(
       Column19 == 1 ~ "Male",
@@ -22,8 +21,6 @@ df <- df %>%
       TRUE ~ Column138 / (Column139 * 200)
     ),
     Age_Group = case_when(
-      Column20 >= 15 & Column20 <= 19 ~ "15-19",
-      Column20 >= 20 & Column20 <= 24 ~ "20-24",
       Column20 >= 25 & Column20 <= 29 ~ "25-29",
       Column20 >= 30 & Column20 <= 34 ~ "30-34",
       Column20 >= 35 & Column20 <= 39 ~ "35-39",
@@ -42,7 +39,7 @@ df <- df %>%
   ) %>%
   filter(!is.na(Age_Group))
 
-df <- df %>%
+perv1 <- perv1 %>%
   mutate(
     MultiCategory = case_when(
       Column22 == 1 ~ "No Schooling",   
@@ -59,7 +56,7 @@ df <- df %>%
   )
 
 # For Rural Males
-male_rural_multi_table <- df %>%
+male_rural_multi_table <- perv1 %>%
   filter(Gender == "Male", Sector == "Rural") %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -73,11 +70,10 @@ male_rural_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(male_rural_multi_table)
 View(male_rural_multi_table)
 
 # For Urban Males
-male_urban_multi_table <- df %>%
+male_urban_multi_table <- perv1 %>%
   filter(Gender == "Male", Sector == "Urban") %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -91,11 +87,10 @@ male_urban_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(male_urban_multi_table)
 View(male_urban_multi_table)
 
 # For Males
-male_multi_table <- df %>%
+male_multi_table <- perv1 %>%
   filter(Gender == "Male") %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -109,11 +104,10 @@ male_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(male_multi_table)
 View(male_multi_table)
 
 # For Rural Females
-female_rural_multi_table <- df %>%
+female_rural_multi_table <- perv1 %>%
   filter(Gender == "Female", Sector == "Rural") %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -127,11 +121,10 @@ female_rural_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(female_rural_multi_table)
 View(female_rural_multi_table)
 
 # For Urban Females
-female_urban_multi_table <- df %>%
+female_urban_multi_table <- perv1 %>%
   filter(Gender == "Female", Sector == "Urban") %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -145,11 +138,10 @@ female_urban_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(female_urban_multi_table)
 View(female_urban_multi_table)
 
 # For Females
-female_multi_table <- df %>%
+female_multi_table <- perv1 %>%
   filter(Gender == "Female",) %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -163,11 +155,10 @@ female_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(female_multi_table)
 View(female_multi_table)
 
 # For Rural Person
-person_rural_multi_table <- df %>%
+person_rural_multi_table <- perv1 %>%
   filter(Sector == "Rural") %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -181,11 +172,10 @@ person_rural_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(person_rural_multi_table)
 View(person_rural_multi_table)
 
 # For Urban Person
-person_urban_multi_table <- df %>%
+person_urban_multi_table <- perv1 %>%
   filter(Sector == "Urban") %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -199,12 +189,11 @@ person_urban_multi_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(person_urban_multi_table)
 View(person_urban_multi_table)
 
 
 # For Person
-person_table <- df %>%
+person_table <- perv1 %>%
   group_by(Age_Group, MultiCategory) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
   pivot_wider(
@@ -217,26 +206,10 @@ person_table <- df %>%
   arrange(factor(Age_Group, levels = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49",
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
-print(person_table)
 View(person_table)
 
 
 
-
-
-
-table <- list(
-  "Rural Male" = male_rural_multi_table,
-  "Urban Male" = male_urban_multi_table,
-  "Male All"   = male_multi_table,
-  "Rural Female" = female_rural_multi_table,
-  "Urban Female" = female_urban_multi_table,
-  "Female All"   = female_multi_table,
-  "Rural Person" = person_rural_multi_table,
-  "Urban Person" = person_urban_multi_table,
-  "Person All" = person_table
-)
-write_xlsx(table, "PLFS_MYS_Tables_2023_24.xlsx")
 
 
 
