@@ -1,7 +1,6 @@
 library(dplyr)
 library(data.table)
 
-
 perv1 <- fread("D:/UDISE+/perv1.txt")
 
 
@@ -238,6 +237,7 @@ table <- list(
   "Literacy_7plus" = literacy_7plus,
   "Rural_Urban_literacy" = rural_urban_summary
 )
+
 
 
 
