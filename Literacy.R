@@ -231,12 +231,7 @@ table <- list(
   "Female_Rural" = female_rural_table,
   "Female_Urban" = female_urban_table,
   "Feale_AllIndia" = female_table,
-  "Person_Rural" = person_rural_table,
-  "Person_Urban" = person_urban_table,
-  "Person_AllIndia" = person_table,
-  "Literacy_7plus" = literacy_7plus,
-  "Rural_Urban_literacy" = rural_urban_summary
-)
+  
 
 
 
