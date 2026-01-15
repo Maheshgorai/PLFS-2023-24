@@ -1,6 +1,5 @@
 library(dplyr)
 library(data.table)
-library(writexl)
 
 
 perv1 <- fread("D:/UDISE+/perv1.txt")
@@ -240,7 +239,7 @@ table <- list(
   "Rural_Urban_literacy" = rural_urban_summary
 )
 
-write_xlsx(table, "PLFS_Literacy_Tables_2023_24_with_ages_7.xlsx")
+
 
 
 
