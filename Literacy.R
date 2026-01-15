@@ -3,7 +3,6 @@ library(data.table)
 
 perv1 <- fread("D:/UDISE+/perv1.txt")
 
-
 perv1 <- perv1 %>%
   mutate(
     Gender = ifelse(Column19 == 1, "Male", 
@@ -225,6 +224,7 @@ cat("Rural-Urban literacy gap (Persons): ",
     "%\n")
 
   
+
 
 
 
