@@ -2,6 +2,8 @@ library(dplyr)
 library(data.table)
 library(tidyr)
 
+
+
 perv1 <- fread("D:/UDISE+/perv1.txt")
 
 perv1 <- perv1 %>%
@@ -207,6 +209,7 @@ person_table <- perv1 %>%
                                        "50-54","55-59","60-64","65-69","70-74","75-79","80-84","85+")))
 
 View(person_table)
+
 
 
 
