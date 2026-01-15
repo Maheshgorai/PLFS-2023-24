@@ -224,14 +224,8 @@ cat("Rural-Urban literacy gap (Persons): ",
             literacy_7plus$Literacy_Rate_7plus[literacy_7plus$Category == "Person_Rural"], 1),
     "%\n")
 
-table <- list(
-  "Male_Rural" = male_rural_table,
-  "Male_Urban" = male_urban_table,
-  "Male_AllIndia" = male_table,
-  "Female_Rural" = female_rural_table,
-  "Female_Urban" = female_urban_table,
-  "Feale_AllIndia" = female_table,
   
+
 
 
 
