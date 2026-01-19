@@ -106,6 +106,6 @@ specific_states_table <- never_enrolled_table_state %>%
 
 View(specific_states_table)
 
-write_xlsx(specific_states_table,"Never_enrolled_8_state_New.xlsx")
+
 
 
