@@ -1,7 +1,6 @@
 library(dplyr)
 library(data.table)
 library(tidyr)
-library(writexl)
 
 setwd("D:/UDISE+/R")
 
@@ -109,3 +108,4 @@ specific_states_table <- never_enrolled_table_state %>%
 View(specific_states_table)
 
 write_xlsx(specific_states_table,"Never_enrolled_8_state_New.xlsx")
+
