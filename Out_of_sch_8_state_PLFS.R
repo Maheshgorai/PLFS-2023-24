@@ -48,7 +48,6 @@ never_enrolled_table_all <- never_enrolled_df %>%
   arrange(State)
 View(never_enrolled_table_all)
 
-# First, convert State to character if it's numeric (to avoid factor issues later)
 never_enrolled_table_s <- never_enrolled_table_all %>%
   mutate(State = as.character(State))
 
@@ -105,6 +104,7 @@ specific_states_table <- never_enrolled_table_state %>%
   filter(State %in% c("5", "9","22", "23", "24", "25", "27", "30"))
 
 View(specific_states_table)
+
 
 
 
