@@ -92,7 +92,6 @@ never_enrolled_table_state <- never_enrolled_table_s %>%
     TRUE ~ "Unknown"
   ))
 
-# Reorder columns to put State_Name next to State
 never_enrolled_table_state <- never_enrolled_table_state %>%
   select(State, State_Name, Gender, Reasons, everything())
 
@@ -103,6 +102,7 @@ specific_states_table <- never_enrolled_table_state %>%
   filter(State %in% c("5", "9","22", "23", "24", "25", "27", "30"))
 
 View(specific_states_table)
+
 
 
 
