@@ -36,7 +36,6 @@ never_enrolled_df <- df %>%
     Never_Enrolled = if_else(Column25 %in% c(1,2,3,4,5,11,12,13,14,15), "Yes", "No")
   ) %>%
   filter(!is.na(Age_Group), Never_Enrolled == "Yes")
-View(never_enrolled_df)
 
 never_enrolled_table_all <- never_enrolled_df %>%
   group_by(State, Age_Group,Gender, Reasons) %>%
@@ -108,4 +107,5 @@ specific_states_table <- never_enrolled_table_state %>%
 View(specific_states_table)
 
 write_xlsx(specific_states_table,"Never_enrolled_8_state_New.xlsx")
+
 
