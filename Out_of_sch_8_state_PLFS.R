@@ -51,7 +51,6 @@ View(never_enrolled_table_all)
 never_enrolled_table_s <- never_enrolled_table_all %>%
   mutate(State = as.character(State))
 
-# Add state names using a mapping
 never_enrolled_table_state <- never_enrolled_table_s %>%
   mutate(State_Name = case_when(
     #State == "01" ~ "Jammu & Kashmir",
@@ -104,6 +103,7 @@ specific_states_table <- never_enrolled_table_state %>%
   filter(State %in% c("5", "9","22", "23", "24", "25", "27", "30"))
 
 View(specific_states_table)
+
 
 
 
