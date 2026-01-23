@@ -12,7 +12,7 @@ never_enrolled_df <- df %>%
       Column19 == 1 ~ "Male",
       Column19 == 2 ~ "Female",
       TRUE ~ "All"
-    )
+    ),
     Reasons = case_when(
       Column25 %in% c(1,11) ~ "School too far",
       Column25 %in% c(2,12) ~ "Supplement household income",
@@ -101,6 +101,7 @@ specific_states_table <- never_enrolled_table_state %>%
   filter(State %in% c("5", "9","22", "23", "24", "25", "27", "30"))
 
 View(specific_states_table)
+
 
 
 
