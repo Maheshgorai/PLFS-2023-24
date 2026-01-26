@@ -84,7 +84,7 @@ total_pop_table_state <- total_pop_table_s %>%
 
 total_pop_table_state <- total_pop_table_state %>%
   select(State, State_Name, Gender, everything())
-View(total_pop_table_state)
+
 
 
 
