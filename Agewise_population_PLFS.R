@@ -11,7 +11,7 @@ total_pop_df <- df %>%
     Gender = case_when(
       Column19 == 1 ~ "Male",
       Column19 %in% c(2,3) ~ "Female",
-      TRUE ~ "Other"  # Adjusted for potential transgender or unknown; change to "All" if needed
+      TRUE ~ "Other" 
     ),
     final_weight = case_when(
       Column136 == Column137 ~ Column138 / (Column139 * 100),
@@ -20,8 +20,6 @@ total_pop_df <- df %>%
     Age_Group = case_when(
       Column20 >= 6 & Column20 <= 17 ~ "Age 6-17",
       Column20 >= 18 & Column20 <= 24 ~ "18-24",
-      #Column20 >= 14 & Column20 <= 15 ~ "14-15",
-      #Column20 >= 16 & Column20 <= 17 ~ "16-17",
       TRUE ~ NA_character_
     ),
     State = Column6
@@ -40,11 +38,9 @@ total_pop_table_all <- total_pop_df %>%
   arrange(State)
 View(total_pop_table_all)
 
-# First, convert State to character if it's numeric (to avoid factor issues later)
 total_pop_table_s <- total_pop_table_all %>%
   mutate(State = as.character(State))
 
-# Add state names using a mapping
 total_pop_table_state <- total_pop_table_s %>%
   mutate(State_Name = case_when(
     State == "1" ~ "Jammu & Kashmir",
@@ -86,10 +82,9 @@ total_pop_table_state <- total_pop_table_s %>%
     TRUE ~ "Unknown"
   ))
 
-# Reorder columns to put State_Name next to State
 total_pop_table_state <- total_pop_table_state %>%
   select(State, State_Name, Gender, everything())
 View(total_pop_table_state)
 
-write_xlsx(total_pop_table_state, "Total_Agewise_Population_PLFS.xlsx")
+
 
