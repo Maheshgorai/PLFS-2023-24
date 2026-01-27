@@ -4,7 +4,7 @@ library(tidyr)
 library(writexl)
 
 setwd("D:/UDISE+/R")
-df <- fread("D:/UDISE+/perv1.txt")
+perv1 <- fread("D:/UDISE+/perv1.txt")
 
 total_pop_df <- df %>%
   mutate(
@@ -84,6 +84,7 @@ total_pop_table_state <- total_pop_table_s %>%
 
 total_pop_table_state <- total_pop_table_state %>%
   select(State, State_Name, Gender, everything())
+
 
 
 
