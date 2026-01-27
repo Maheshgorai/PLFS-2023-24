@@ -1,10 +1,7 @@
 library(dplyr)
 library(data.table)
 
-df <- fread("D:/UDISE+/perv1.txt")
-
-
-
+perv1 <- fread("D:/UDISE+/perv1.txt")
 
 
 df <- df %>%
@@ -128,6 +125,7 @@ state_urban_table_7plus <- df %>%
   ) %>%
   arrange(desc(Literacy_Rate_urban_7plus))
 View(state_urban_table_7plus)
+
 
 
 
