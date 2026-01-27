@@ -4,7 +4,7 @@ library(data.table)
 perv1 <- fread("D:/UDISE+/perv1.txt")
 
 
-df <- df %>%
+perv1 <- perv1 %>%
   mutate(State = Column6, State = as.character(State))
 df <- df %>%
   mutate(
@@ -125,6 +125,7 @@ state_urban_table_7plus <- df %>%
   ) %>%
   arrange(desc(Literacy_Rate_urban_7plus))
 View(state_urban_table_7plus)
+
 
 
 
