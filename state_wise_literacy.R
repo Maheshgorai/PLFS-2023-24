@@ -85,7 +85,7 @@ perv1 <- perv1 %>%
   ))
 
 # State-wise for Persons (All sectors) - AGE 7+ ONLY
-state_person_table_7plus <- df %>%
+state_person_table_7plus <- perv1 %>%
   filter(Column20 >= 7, !is.na(State)) %>%   
   group_by(State_Name, Literacy) %>%         
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -101,7 +101,7 @@ print(state_person_table_7plus)
 View(state_person_table_7plus)
 
 # Rural version (Age 7+)
-state_rural_table_7plus <- df %>%
+state_rural_table_7plus <- perv1 %>%
   filter(Column20 >= 7, Sector == "Rural", !is.na(State)) %>%
   group_by(State_Name, Literacy) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -114,7 +114,7 @@ state_rural_table_7plus <- df %>%
 View(state_rural_table_7plus)
 
 # Urban version (Age 7+)
-state_urban_table_7plus <- df %>%
+state_urban_table_7plus <- perv1 %>%
   filter(Column20 >= 7, Sector == "Urban", !is.na(State)) %>%
   group_by(State_Name, Literacy) %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop") %>%
@@ -125,6 +125,7 @@ state_urban_table_7plus <- df %>%
   ) %>%
   arrange(desc(Literacy_Rate_urban_7plus))
 View(state_urban_table_7plus)
+
 
 
 
