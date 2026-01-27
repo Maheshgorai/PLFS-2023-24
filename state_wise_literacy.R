@@ -6,7 +6,7 @@ perv1 <- fread("D:/UDISE+/perv1.txt")
 
 perv1 <- perv1 %>%
   mutate(State = Column6, State = as.character(State))
-df <- df %>%
+perv1 <- perv1 %>%
   mutate(
     Gender = ifelse(Column19 == 1, "Male", 
                     ifelse(Column19 == 2, "Female", NA)),
@@ -125,6 +125,7 @@ state_urban_table_7plus <- df %>%
   ) %>%
   arrange(desc(Literacy_Rate_urban_7plus))
 View(state_urban_table_7plus)
+
 
 
 
