@@ -27,7 +27,6 @@ never_enrolled_df <- df %>%
     Age_Group = case_when(
       Column20 >= 14 & Column20 <= 18 ~ "14-18",
       #Column20 >= 11 & Column20 <= 13 ~ "11-13",
-      #Column20 >= 14 & Column20 <= 15 ~ "14-15",
       TRUE ~ NA_character_
     ),
     State = Column6,
@@ -99,6 +98,7 @@ specific_states_table <- never_enrolled_table_state %>%
   filter(State %in% c("5", "9","22", "23", "24", "25", "27", "30"))
 
 View(specific_states_table)
+
 
 
 
