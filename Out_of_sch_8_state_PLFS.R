@@ -5,7 +5,6 @@ library(tidyr)
 setwd("D:/UDISE+/R")
 
 df <- fread("D:/UDISE+/perv1.txt")
-View(df)
 never_enrolled_df <- df %>%
   mutate(
     Gender = case_when(
@@ -101,6 +100,7 @@ specific_states_table <- never_enrolled_table_state %>%
   filter(State %in% c("5", "9","22", "23", "24", "25", "27", "30"))
 
 View(specific_states_table)
+
 
 
 
