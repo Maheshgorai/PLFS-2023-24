@@ -2,7 +2,7 @@ library(dplyr)
 library(data.table)
 
 perv1 <- fread("D:/UDISE+/perv1.txt")
-View(perv1)
+View
 perv1 <- perv1 %>%
   mutate(
     final_weight = case_when(
@@ -12,6 +12,7 @@ perv1 <- perv1 %>%
   )
 total_pop <- sum(perv1$final_weight, na.rm = TRUE)
 print(round(total_pop))
+
 
 
 
