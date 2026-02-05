@@ -5,7 +5,7 @@ library(writexl)
 
 perv1 <- fread("D:/UDISE+/perv1.txt")
 
-total_pop_df <- perv1 %>%
+total_pop_df <- perv1 
   mutate(
     Gender = case_when(
       Column19 == 1 ~ "Male",
@@ -83,6 +83,7 @@ total_pop_table_state <- total_pop_table_s %>%
 
 total_pop_table_state <- total_pop_table_state %>%
   select(State, State_Name, Gender, everything())
+
 
 
 
