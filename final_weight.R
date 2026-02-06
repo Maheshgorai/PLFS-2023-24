@@ -11,7 +11,8 @@ perv1 <- perv1 %>%
     )
   )
 total_pop <- sum(perv1$final_weight, na.rm = TRUE)
-print(round(total_pop))
+print(round(total_
+
 
 
 
