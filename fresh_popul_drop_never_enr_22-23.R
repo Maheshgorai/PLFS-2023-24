@@ -19,7 +19,7 @@ never_enr_1 <- PLFS_23_24 %>%
   filter(Never_enr == "Yes")%>%
   group_by(Age)%>%
   summarise(Never_enrol = sum(final_weight, na.rm = TRUE), .groups = "drop")
-View
+
 write_xlsx(never_enr_1,"Never_enr_all_age(23-24).xlsx")
 
 
@@ -55,6 +55,7 @@ population_1 <- PLFS_23_24 %>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop")
 View(population_1)
 write_xlsx(population_1,"Population_all_age(23-24).xlsx")
+
 
 
 
