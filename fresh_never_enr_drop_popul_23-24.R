@@ -23,7 +23,7 @@ never_enr_1 <- PLFS_23_24 %>%
   group_by(Age)%>%
   summarise(Never_enrol = sum(final_weight, na.rm = TRUE), .groups = "drop")
 View(never_enr_1)
-write_xlsx(never_enr_1,"Never_enr_all_age(23-24).xlsx")
+write_xlsx(never_enr_1,"
 
 
 #=============================  Dropout  =======================================
@@ -57,6 +57,7 @@ population_1 <- PLFS_23_24 %>%
   group_by(Age)%>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop")
 View(population_1)
+
 
 
 
