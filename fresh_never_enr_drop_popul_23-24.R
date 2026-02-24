@@ -2,8 +2,6 @@ library(dplyr)
 library(data.table)
 library(writexl)
 library(tidyr)
-setwd("D:/Sch_edu/PLFS")
-
 
 PLFS_23_24 <- fread("D:/Sch_edu/PLFS/perv1.txt")
 
@@ -57,6 +55,7 @@ population_1 <- PLFS_23_24 %>%
   group_by(Age)%>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop")
 View(population_1)
+
 
 
 
