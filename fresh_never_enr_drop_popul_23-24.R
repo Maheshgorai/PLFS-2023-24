@@ -57,7 +57,8 @@ population_1 <- PLFS_23_24 %>%
   group_by(Age)%>%
   summarise(Population = sum(final_weight, na.rm = TRUE), .groups = "drop")
 View(population_1)
-write_xlsx(population_1,
+
+
 
 
 
