@@ -14,7 +14,6 @@ perv1 <- perv1 %>%
   )
 
 total_pop <- sum(perv1$final_weight, na.rm = TRUE)
-print(round 
 
 perv1 <- perv1 %>%
   mutate(
@@ -224,6 +223,7 @@ cat("Rural-Urban literacy gap (Persons): ",
     "%\n")
 
   
+
 
 
 
