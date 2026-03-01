@@ -24,7 +24,6 @@ total_pop_df <- perv1 %>%
     State = Column6
   ) %>%
   filter(!is.na(Age_Group))
-View
 
 total_pop_table_all <- total_pop_df %>%
   group_by(State, Age_Group, Gender) %>%
@@ -35,7 +34,7 @@ total_pop_table_all <- total_pop_df %>%
     values_fill = 0
   ) %>%
   arrange(State)
-View(total_pop_table_all)
+View(total_pop_table
 
 total_pop_table_s <- total_pop_table_all %>%
   mutate(State = as.character(State))
@@ -83,6 +82,7 @@ total_pop_table_state <- total_pop_table_s %>%
 
 total_pop_table_state <- total_pop_table_state %>%
   select(State, State_Name, Gender, everything())
+
 
 
 
