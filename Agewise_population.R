@@ -34,7 +34,6 @@ total_pop_table_all <- total_pop_df %>%
     values_fill = 0
   ) %>%
   arrange(State)
-View(total_
 
 total_pop_table_s <- total_pop_table_all %>%
   mutate(State = as.character(State))
@@ -82,6 +81,7 @@ total_pop_table_state <- total_pop_table_s %>%
 
 total_pop_table_state <- total_pop_table_state %>%
   select(State, State_Name, Gender, everything())
+
 
 
 
