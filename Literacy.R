@@ -1,7 +1,7 @@
 library(dplyr)
 library(data.table)
 
-perv1 <- fread("D:/UDISE+/perv1.txt")
+perv1 <- fread("D:/*****/perv1.txt")
 
 perv1 <- perv1 %>%
   mutate(
@@ -224,6 +224,7 @@ cat("Rural-Urban literacy gap (Persons): ",
     "%\n")
 
   
+
 
 
 
