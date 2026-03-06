@@ -1,7 +1,7 @@
 library(dplyr)
 library(data.table)
 
-perv1 <- fread("D:/UDISE+/perv1.txt")
+perv1 <- fread("D:/*****/perv1.txt")
 
 perv1 <- perv1 %>%
   mutate(
@@ -12,6 +12,7 @@ perv1 <- perv1 %>%
   )
 total_pop <- sum(perv1$final_weight, na.rm = TRUE)
 print(round(total_pop))
+
 
 
 
