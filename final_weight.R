@@ -11,7 +11,7 @@ perv1 <- perv1 %>%
     )
   )
 total_pop <- sum(perv1$final_weight, na.rm = TRUE)
-printdyg
+
 
 
 
