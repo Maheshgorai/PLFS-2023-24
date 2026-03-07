@@ -124,7 +124,7 @@ state_urban_table_7plus <- perv1 %>%
     Literacy_Rate_urban_7plus = round(100 * Literate / Total, 1)
   ) %>%
   arrange(desc(Literacy_Rate_urban_7plus))
-View(state
+
 
 
 
