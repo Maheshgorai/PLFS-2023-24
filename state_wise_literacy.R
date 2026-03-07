@@ -1,7 +1,7 @@
 library(dplyr)
 library(data.table)
 
-perv1 <- fread("D:/UDISE+/perv1.txt")
+perv1 <- fread("D:/*****/perv1.txt")
 
 
 perv1 <- perv1 %>%
@@ -124,6 +124,7 @@ state_urban_table_7plus <- perv1 %>%
     Literacy_Rate_urban_7plus = round(100 * Literate / Total, 1)
   ) %>%
   arrange(desc(Literacy_Rate_urban_7plus))
+
 
 
 
